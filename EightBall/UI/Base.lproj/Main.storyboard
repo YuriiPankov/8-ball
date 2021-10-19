@@ -8,7 +8,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Main-->
+        <!--8-Ball-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="MainViewController" customModule="EightBall" customModuleProvider="target" sceneMemberID="viewController">
@@ -17,37 +17,33 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="FL2-Bh-Hkv">
-                                <rect key="frame" x="10" y="108" width="394" height="64"/>
+                                <rect key="frame" x="10" y="118" width="394" height="50"/>
                                 <subviews>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter your question and shake iPhone" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="zbP-L4-K0J">
-                                        <rect key="frame" x="8" y="0.0" width="378" height="34"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
-                                    </textField>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Ie-pb-D8P">
-                                        <rect key="frame" x="8" y="64" width="378" height="0.0"/>
-                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Ie-pb-D8P">
+                                        <rect key="frame" x="8" y="0.0" width="378" height="0.0"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="22"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="qrR-KW-9BD">
+                                        <rect key="frame" x="187" y="30" width="20" height="20"/>
+                                    </activityIndicatorView>
                                 </subviews>
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="4Ie-pb-D8P" secondAttribute="trailing" constant="8" id="9lt-0C-hFZ"/>
                                     <constraint firstItem="4Ie-pb-D8P" firstAttribute="leading" secondItem="FL2-Bh-Hkv" secondAttribute="leading" constant="8" id="f8W-M6-0OG"/>
-                                    <constraint firstAttribute="trailing" secondItem="zbP-L4-K0J" secondAttribute="trailing" constant="8" id="fuO-IP-As5"/>
-                                    <constraint firstItem="zbP-L4-K0J" firstAttribute="leading" secondItem="FL2-Bh-Hkv" secondAttribute="leading" constant="8" id="pTo-of-e6r"/>
                                 </constraints>
                             </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemGray6Color"/>
                         <constraints>
-                            <constraint firstItem="FL2-Bh-Hkv" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="20" id="8XW-vI-i5L"/>
+                            <constraint firstItem="FL2-Bh-Hkv" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="30" id="8XW-vI-i5L"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="FL2-Bh-Hkv" secondAttribute="trailing" constant="10" id="9ZE-Ms-5HL"/>
                             <constraint firstItem="FL2-Bh-Hkv" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="10" id="q3Q-TY-6FO"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Main" largeTitleDisplayMode="always" id="8Eo-D6-lwJ">
+                    <navigationItem key="navigationItem" title="8-Ball" largeTitleDisplayMode="always" id="8Eo-D6-lwJ">
                         <barButtonItem key="rightBarButtonItem" title="Settings" id="Wo6-nf-Gkj">
                             <connections>
                                 <segue destination="Xkc-T3-gwb" kind="presentation" id="SXB-IW-Jpm"/>
@@ -56,7 +52,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="answerLabel" destination="4Ie-pb-D8P" id="4bm-mL-a1k"/>
-                        <outlet property="questionTextField" destination="zbP-L4-K0J" id="xid-q3-ZWY"/>
+                        <outlet property="spinner" destination="qrR-KW-9BD" id="FwJ-9S-89w"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -67,25 +63,57 @@
         <scene sceneID="cho-Rx-egM">
             <objects>
                 <viewController id="fP9-1s-oa5" customClass="SettingsViewController" customModule="EightBall" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="dcO-7N-Avt">
+                    <view key="view" contentMode="scaleToFill" ambiguous="YES" id="dcO-7N-Avt">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter default answer" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="dt7-IV-v1q">
-                                <rect key="frame" x="18" y="76" width="378" height="34"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                                <connections>
-                                    <action selector="defaultAnswerEditingChanged:" destination="fP9-1s-oa5" eventType="editingChanged" id="Kii-k4-2Ai"/>
-                                </connections>
-                            </textField>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="7" translatesAutoresizingMaskIntoConstraints="NO" id="p65-PH-GPH">
+                                <rect key="frame" x="8" y="76" width="378" height="157"/>
+                                <subviews>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter default answer" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="dt7-IV-v1q">
+                                        <rect key="frame" x="0.0" y="0.0" width="378" height="34"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                        <connections>
+                                            <action selector="defaultAnswerEditingChanged:" destination="fP9-1s-oa5" eventType="editingChanged" id="Kii-k4-2Ai"/>
+                                        </connections>
+                                    </textField>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter default answer" textAlignment="natural" minimumFontSize="17" id="smc-0C-b0B">
+                                        <rect key="frame" x="0.0" y="41" width="378" height="34"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                        <connections>
+                                            <action selector="defaultAnswerEditingChanged:" destination="fP9-1s-oa5" eventType="editingChanged" id="HLT-sS-tOh"/>
+                                        </connections>
+                                    </textField>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter default answer" textAlignment="natural" minimumFontSize="17" id="DJQ-2a-wxo">
+                                        <rect key="frame" x="0.0" y="82" width="378" height="34"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                        <connections>
+                                            <action selector="defaultAnswerEditingChanged:" destination="fP9-1s-oa5" eventType="editingChanged" id="SN5-DI-BTo"/>
+                                        </connections>
+                                    </textField>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter default answer" textAlignment="natural" minimumFontSize="17" id="8fA-oa-89u">
+                                        <rect key="frame" x="0.0" y="123" width="378" height="34"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                        <connections>
+                                            <action selector="defaultAnswerEditingChanged:" destination="fP9-1s-oa5" eventType="editingChanged" id="5yI-UY-VzW"/>
+                                        </connections>
+                                    </textField>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="tw2-rx-3pv"/>
                         <color key="backgroundColor" systemColor="systemGray6Color"/>
                         <constraints>
-                            <constraint firstItem="dt7-IV-v1q" firstAttribute="top" secondItem="tw2-rx-3pv" secondAttribute="top" constant="20" id="Upa-Gk-gJb"/>
-                            <constraint firstItem="dt7-IV-v1q" firstAttribute="leading" secondItem="tw2-rx-3pv" secondAttribute="leading" constant="18" id="dpS-Zk-6tT"/>
-                            <constraint firstItem="tw2-rx-3pv" firstAttribute="trailing" secondItem="dt7-IV-v1q" secondAttribute="trailing" constant="18" id="nwc-YE-EOy"/>
+                            <constraint firstItem="tw2-rx-3pv" firstAttribute="trailing" secondItem="p65-PH-GPH" secondAttribute="trailing" constant="8" id="EzS-Lz-W9p"/>
+                            <constraint firstItem="p65-PH-GPH" firstAttribute="leading" secondItem="tw2-rx-3pv" secondAttribute="leading" constant="8" id="bhb-W0-KBQ"/>
+                            <constraint firstItem="p65-PH-GPH" firstAttribute="top" secondItem="tw2-rx-3pv" secondAttribute="top" constant="20" id="ddz-Xv-HFO"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Settings" id="ymJ-Od-dpj">
@@ -101,14 +129,26 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="defaultAnswerTextField" destination="dt7-IV-v1q" id="KN0-Yg-aVt"/>
+                        <outlet property="defaultAnswerTextField0" destination="dt7-IV-v1q" id="KN0-Yg-aVt"/>
+                        <outlet property="defaultAnswerTextField1" destination="smc-0C-b0B" id="1Dz-My-ITA"/>
+                        <outlet property="defaultAnswerTextField2" destination="DJQ-2a-wxo" id="HwV-Yr-bGG"/>
+                        <outlet property="defaultAnswerTextField3" destination="8fA-oa-89u" id="hSv-fY-z6p"/>
                         <outlet property="saveButton" destination="Tkb-Bg-OC1" id="vp0-HO-QZi"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AWV-VR-AG6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <exit id="Rhn-mc-1vr" userLabel="Exit" sceneMemberID="exit"/>
+                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter default answer" textAlignment="natural" minimumFontSize="17" id="EUc-rb-JSd">
+                    <rect key="frame" x="0.0" y="0.0" width="398" height="34"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits"/>
+                    <connections>
+                        <action selector="defaultAnswerEditingChanged:" destination="fP9-1s-oa5" eventType="editingChanged" id="4ef-Sm-kvE"/>
+                    </connections>
+                </textField>
             </objects>
-            <point key="canvasLocation" x="2663.768115942029" y="83.705357142857139"/>
+            <point key="canvasLocation" x="2888" y="84"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="gQm-H4-vFp">

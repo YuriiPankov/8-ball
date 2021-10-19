@@ -7,6 +7,7 @@
 
 import Foundation
 
+//Structure of Magic mimics JSON respond structure
 struct Magic: Codable {
     var magic: Answer
     
